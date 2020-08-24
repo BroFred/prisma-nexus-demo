@@ -1,0 +1,25 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "DeleteField",
+      "model": "Workflow",
+      "field": "previous"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Workflow",
+      "field": "next"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Workflow",
+      "field": "parent"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Workflow",
+      "field": "children"
+    }
+  ]
+}

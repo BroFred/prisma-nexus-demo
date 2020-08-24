@@ -1,0 +1,538 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "CreateEnum",
+      "enum": "CustomDataType",
+      "values": [
+        "select",
+        "multiSelect",
+        "text"
+      ]
+    },
+    {
+      "tag": "CreateModel",
+      "model": "CustomData"
+    },
+    {
+      "tag": "CreateField",
+      "model": "CustomData",
+      "field": "id",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "CustomData",
+          "field": "id"
+        },
+        "directive": "id"
+      }
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "CustomData",
+          "field": "id"
+        },
+        "directive": "default"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "CustomData",
+          "field": "id"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "value": "uuid()"
+    },
+    {
+      "tag": "CreateField",
+      "model": "CustomData",
+      "field": "workflowId",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "CustomData",
+      "field": "workflow",
+      "type": "Workflow",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "CustomData",
+          "field": "workflow"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "CustomData",
+          "field": "workflow"
+        },
+        "directive": "relation"
+      },
+      "argument": "",
+      "value": "\"customData\""
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "CustomData",
+          "field": "workflow"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[workflowId]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "CustomData",
+          "field": "workflow"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "CustomData",
+      "field": "type",
+      "type": "CustomDataType",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "CustomData",
+      "field": "dataSourceId",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "CustomData",
+      "field": "dataSource",
+      "type": "CustomDataDataSource",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "CustomData",
+          "field": "dataSource"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "CustomData",
+          "field": "dataSource"
+        },
+        "directive": "relation"
+      },
+      "argument": "",
+      "value": "\"dataSource\""
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "CustomData",
+          "field": "dataSource"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[dataSourceId]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "CustomData",
+          "field": "dataSource"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "CustomData",
+      "field": "data",
+      "type": "Json",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateModel",
+      "model": "CustomDataDataSource"
+    },
+    {
+      "tag": "CreateField",
+      "model": "CustomDataDataSource",
+      "field": "id",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "CustomDataDataSource",
+          "field": "id"
+        },
+        "directive": "id"
+      }
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "CustomDataDataSource",
+          "field": "id"
+        },
+        "directive": "default"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "CustomDataDataSource",
+          "field": "id"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "value": "uuid()"
+    },
+    {
+      "tag": "CreateField",
+      "model": "CustomDataDataSource",
+      "field": "type",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "CustomDataDataSource",
+      "field": "meta",
+      "type": "Json",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateModel",
+      "model": "Field"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Field",
+      "field": "id",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Field",
+          "field": "id"
+        },
+        "directive": "id"
+      }
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Field",
+          "field": "id"
+        },
+        "directive": "default"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Field",
+          "field": "id"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "value": "uuid()"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Field",
+      "field": "type",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Field",
+      "field": "dataSource",
+      "type": "CustomDataDataSource",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Field",
+      "field": "WorkflowTemplates",
+      "type": "WorkflowTemplate",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Field",
+          "field": "WorkflowTemplates"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Field",
+          "field": "WorkflowTemplates"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateModel",
+      "model": "WorkflowTemplate"
+    },
+    {
+      "tag": "CreateField",
+      "model": "WorkflowTemplate",
+      "field": "id",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "WorkflowTemplate",
+          "field": "id"
+        },
+        "directive": "id"
+      }
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "WorkflowTemplate",
+          "field": "id"
+        },
+        "directive": "default"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "WorkflowTemplate",
+          "field": "id"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "value": "uuid()"
+    },
+    {
+      "tag": "CreateField",
+      "model": "WorkflowTemplate",
+      "field": "fields",
+      "type": "Field",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "WorkflowTemplate",
+          "field": "fields"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "WorkflowTemplate",
+          "field": "fields"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "User",
+      "field": "watchedByMe",
+      "type": "Workflow",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "User",
+          "field": "watchedByMe"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "User",
+          "field": "watchedByMe"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Workflow",
+      "field": "customDatas",
+      "type": "CustomData",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Workflow",
+          "field": "customDatas"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Workflow",
+          "field": "customDatas"
+        },
+        "directive": "relation"
+      },
+      "argument": "",
+      "value": "\"customData\""
+    },
+    {
+      "tag": "CreateField",
+      "model": "Workflow",
+      "field": "watcher",
+      "type": "User",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Workflow",
+          "field": "watcher"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Workflow",
+          "field": "watcher"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    }
+  ]
+}

@@ -1,34 +1,30 @@
 {
-  "name": "driftwood",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3"
-  },
+  "name": "driftwood-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "migrate": "prisma generate && prisma migrate save --experimental && prisma migrate up --experimental && prisma generate",
+    "dev": "ts-node src/app.ts",
+    "build": "nexus build"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^2.5.0",
+    "apollo-server": "^2.16.1",
+    "apollo-server-express": "^2.16.1",
+    "express": "^4.17.1",
+    "nexus": "^0.26.1",
+    "nexus-plugin-prisma": "^0.17.0",
+    "nexus-prisma": "^0.16.2",
+    "ts-node": "^8.10.2"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "devDependencies": {
+    "@prisma/cli": "^2.5.0",
+    "serverless-offline": "^6.5.0",
+    "typescript": "^4.0.2",
+    "serverless-mysql": "^1.5.4"
   }
 }

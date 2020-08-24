@@ -1,0 +1,93 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "mysql"
+  url = "***"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum WorkflowState {
+  todo
+  inprogress
+  done
+  closed
+}
+enum WorkflowType {
+  sequencial
+  parallel
+}
+enum CustomDataType {
+  select
+  multiSelect
+  text
+}
+
+model User {
+  id    String  @id @default(uuid())
+  email String?
+  phone String
+  name  String?
+  createdByMe Workflow[]  @relation("createdByMe")
+  assignedToMe Workflow[] @relation("assignedToMe")
+  reportedToMe Workflow[] @relation("reportedToMe")
+  watchedByMe Workflow[] @relation(references: [id])
+}
+
+model Workflow {
+  name  String?
+  id  String @id @default(uuid())
+  assigneeId  String?
+  reportorId String?
+  creatorId  String
+  previousId String?
+  parentId String?
+  state WorkflowState? 
+  type  WorkflowType?
+  assignee  User?  @relation("assignedToMe",fields: [assigneeId], references: [id])
+  creator  User  @relation("createdByMe", fields: [creatorId], references: [id])
+  reportor User? @relation("reportedToMe", fields: [reportorId], references: [id])
+  previous  Workflow? @relation("neighbor",fields: [previousId], references: [id])
+  next  Workflow? @relation("neighbor")
+  parent  Workflow? @relation("parentChild", fields: [parentId], references: [id])
+  children  Workflow[] @relation("parentChild")
+  customDatas CustomData[] @relation("customData")
+  watcher User[] @relation(references: [id])
+}
+
+model CustomData {
+  id  String @id @default(uuid())
+  workflowId  String 
+  workflow  Workflow @relation("customData", fields: [workflowId], references: [id])
+  type CustomDataType
+  dataSourceId String 
+  dataSource CustomDataDataSource @relation("dataSource", fields: [dataSourceId], references: [id])
+  data Json
+}
+
+// modular custom datasource builder
+model CustomDataDataSource {
+  id  String @id @default(uuid())
+  type String
+  meta Json
+}
+
+// modular templating
+model Field {
+  id  String @id @default(uuid())
+  type String
+  dataSource CustomDataDataSource
+  WorkflowTemplates WorkflowTemplate[] @relation(references: [id])
+}
+
+model WorkflowTemplate {
+  id  String @id @default(uuid())
+  fields Field[] @relation(references: [id])
+}
+
+//https://github.com/flitbit/diff modular data diff log
+//https://github.com/maticzav/graphql-shield modular auth
+//

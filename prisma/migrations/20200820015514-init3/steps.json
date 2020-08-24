@@ -1,0 +1,243 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "CreateField",
+      "model": "Workflow",
+      "field": "previous",
+      "type": "Workflow",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Workflow",
+          "field": "previous"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Workflow",
+          "field": "previous"
+        },
+        "directive": "relation"
+      },
+      "argument": "",
+      "value": "\"neighbor\""
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Workflow",
+          "field": "previous"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[previousId]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Workflow",
+          "field": "previous"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Workflow",
+      "field": "next",
+      "type": "Workflow",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Workflow",
+          "field": "next"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Workflow",
+          "field": "next"
+        },
+        "directive": "relation"
+      },
+      "argument": "",
+      "value": "\"neighbor\""
+    },
+    {
+      "tag": "CreateField",
+      "model": "Workflow",
+      "field": "parent",
+      "type": "Workflow",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Workflow",
+          "field": "parent"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Workflow",
+          "field": "parent"
+        },
+        "directive": "relation"
+      },
+      "argument": "",
+      "value": "\"parentChild\""
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Workflow",
+          "field": "parent"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[parentId]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Workflow",
+          "field": "parent"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Workflow",
+      "field": "children",
+      "type": "Workflow",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Workflow",
+          "field": "children"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Workflow",
+          "field": "children"
+        },
+        "directive": "relation"
+      },
+      "argument": "",
+      "value": "\"parentChild\""
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Workflow",
+          "field": "creator"
+        },
+        "directive": "relation"
+      },
+      "argument": "name",
+      "value": "\"createdByMe\""
+    },
+    {
+      "tag": "DeleteArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Workflow",
+          "field": "creator"
+        },
+        "directive": "relation"
+      },
+      "argument": ""
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Workflow",
+          "field": "reportor"
+        },
+        "directive": "relation"
+      },
+      "argument": "name",
+      "value": "\"reportedToMe\""
+    },
+    {
+      "tag": "DeleteArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Workflow",
+          "field": "reportor"
+        },
+        "directive": "relation"
+      },
+      "argument": ""
+    }
+  ]
+}

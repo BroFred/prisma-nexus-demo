@@ -1,0 +1,25 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "DeleteField",
+      "model": "User",
+      "field": "createdByMe"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "User",
+      "field": "reportedToMe"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Workflow",
+      "field": "creator"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Workflow",
+      "field": "reportor"
+    }
+  ]
+}

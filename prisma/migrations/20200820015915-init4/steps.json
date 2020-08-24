@@ -1,0 +1,199 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "CreateField",
+      "model": "User",
+      "field": "createdByMe",
+      "type": "Workflow",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "User",
+          "field": "createdByMe"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "User",
+          "field": "createdByMe"
+        },
+        "directive": "relation"
+      },
+      "argument": "",
+      "value": "\"createdByMe\""
+    },
+    {
+      "tag": "CreateField",
+      "model": "User",
+      "field": "reportedToMe",
+      "type": "Workflow",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "User",
+          "field": "reportedToMe"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "User",
+          "field": "reportedToMe"
+        },
+        "directive": "relation"
+      },
+      "argument": "",
+      "value": "\"reportedToMe\""
+    },
+    {
+      "tag": "CreateField",
+      "model": "Workflow",
+      "field": "creator",
+      "type": "User",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Workflow",
+          "field": "creator"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Workflow",
+          "field": "creator"
+        },
+        "directive": "relation"
+      },
+      "argument": "",
+      "value": "\"createdByMe\""
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Workflow",
+          "field": "creator"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[creatorId]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Workflow",
+          "field": "creator"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Workflow",
+      "field": "reportor",
+      "type": "User",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Workflow",
+          "field": "reportor"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Workflow",
+          "field": "reportor"
+        },
+        "directive": "relation"
+      },
+      "argument": "",
+      "value": "\"reportedToMe\""
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Workflow",
+          "field": "reportor"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[reportorId]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Workflow",
+          "field": "reportor"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Workflow",
+      "field": "parent"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Workflow",
+      "field": "children"
+    }
+  ]
+}

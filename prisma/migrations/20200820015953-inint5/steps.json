@@ -1,0 +1,45 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "DeleteField",
+      "model": "User",
+      "field": "assignedToMe"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "User",
+      "field": "createdByMe"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "User",
+      "field": "reportedToMe"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Workflow",
+      "field": "assignee"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Workflow",
+      "field": "previous"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Workflow",
+      "field": "next"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Workflow",
+      "field": "creator"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Workflow",
+      "field": "reportor"
+    }
+  ]
+}
